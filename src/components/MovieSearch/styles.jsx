@@ -7,6 +7,7 @@ background-color: #1b1b1c;
 padding: 10px;
 border-radius: 8px;
 align-items: center;
+/* display: flex; */
 `
 
 export const SearchImg = styled(BsSearch)`
@@ -24,7 +25,7 @@ color: white;
 }
 
 &:focus, input:focus {
-    box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;padding: 2rem 8rem;
     outline: 0;
 }
 `
