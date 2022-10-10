@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import GridCardMovie from '../components/GridCardMovie'
 import * as C from './styles'
-const home = () => {
+const Home = () => {
   return (
     <C.Container>
       <Header />
@@ -11,4 +11,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home 
