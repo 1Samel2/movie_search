@@ -25,6 +25,17 @@ export const ContainerContent = styled.div`
  background-color: black;
  padding: 10px;
  gap: 20px;
+ border-radius: 8px;
+a{
+padding:  14px;
+text-align: center;
+background: #540F12;
+color: white;
+border-radius: 8px;
+margin-bottom: 10px;
+cursor: pointer;
+text-decoration: none;
+ }
 `
 
 export const ImgMovie = styled.img`
@@ -40,12 +51,3 @@ export const Star = styled.p`
 color: white;
 `
 
-export const ButtonDetails = styled.button`
-height: 50px;
-border: none;
-background: #540F12;
-color: white;
-border-radius: 8px;
-margin-bottom: 10px;
-cursor: pointer;
-`

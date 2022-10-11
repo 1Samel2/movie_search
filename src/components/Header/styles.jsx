@@ -18,4 +18,9 @@ background-color: #000;
 
 export const Title = styled.h2`
 color: white;
+
+a{
+    text-decoration: none;
+    color: white;
+}
 `
