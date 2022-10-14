@@ -24,12 +24,12 @@ const DetailsMovie = () => {
     }
 
     const formatCurrency = (number) => {
-        return number.toLocaleStrig("en-US", {
-            style: "currency",
-            currency: "USD",
-        })
-    }
-
+        return number.toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+        });
+      };
+    
     useEffect(() => {
         const movieUrl = `${moviesURL}${id}?${apiKey}`
         getMovie(movieUrl)
@@ -42,22 +42,22 @@ const DetailsMovie = () => {
             {movie && (
                 <>
                     <C.DivInform>
-                        <img src={imagesURL + movie.poster_path} alt={movie.title} />
-                        <C.H1>{movie.tagline}</C.H1>
-                        <p>Star</p>
-                        <p>description</p>
+                        <C.Image src={imagesURL + movie.poster_path} alt={movie.title} />
+                        <C.H1>{movie.original_title}</C.H1>
+                        <C.Info><C.Star />{movie.vote_average}</C.Info>
+                        <C.Info>{movie.tagline}</C.Info>
                     </C.DivInform>
 
-                    <div>
-                        <p><BsWallet2 />Orçamento:</p>
-                      {/*   <p>{formatCurrency(movie.budget)}</p> */}
-                        <p><BsGraphUp />Receita:</p>
-                        {/* <p>{formatCurrency(movie.revenue)}</p> */}
-                        <p><BsHourglassSplit />Duração:</p>
-                       {/*  <p>{movie.runtime} minutos</p> */}
-                        <p><BsFillFileEarmarkTextFill />Descrição:</p>
-                      {/*   <p>{movie.overview}</p> */}
-                    </div>
+                    <C.DivContent>
+                        <C.Info><BsWallet2 />Orçamento:</C.Info>
+                        <C.Value>{formatCurrency(movie.budget)}</C.Value>
+                        <C.Info><BsGraphUp />Receita:</C.Info>
+                        <C.Value>{formatCurrency(movie.revenue)}</C.Value>
+                        <C.Info><BsHourglassSplit />Duração:</C.Info>
+                        <C.Value>{movie.runtime} minutos</C.Value>
+                        <C.Info><BsFillFileEarmarkTextFill />Descrição:</C.Info>
+                        <C.Value>{movie.overview}</C.Value>
+                    </C.DivContent>
                 </>
             )}
         </C.Container>

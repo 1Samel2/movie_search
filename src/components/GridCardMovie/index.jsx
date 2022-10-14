@@ -7,7 +7,7 @@ const moviesURL = import.meta.env.VITE_API
 const apiKey = import.meta.env.VITE_API_KEY
 const imagesURL = import.meta.env.VITE_IMG;
 
-const GridCardMovie = () => {
+const GridCardMovie = ({movie, showLink = true}) => {
 
   const [topMovies, setTopMovies] = useState([])
   const getTopRatedMovies = async (url) => {
@@ -16,7 +16,7 @@ const GridCardMovie = () => {
     setTopMovies(data.results)
   }
 
-  console.log(topMovies)
+  console.log(topMovies) 
 
   useEffect(() => {
     const topRateUrl = `${moviesURL}top_rated?${apiKey}`
