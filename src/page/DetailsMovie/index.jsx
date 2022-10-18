@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import Loader from '../../components/Loader'
 import {
     BsGraphUp,
     BsWallet2,
     BsHourglassSplit,
     BsFillFileEarmarkTextFill,
-} from "react-icons/bs";
+} from "react-icons/bs"
+
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -17,34 +19,39 @@ const DetailsMovie = () => {
 
     const { id } = useParams()
     const [movie, setMovie] = useState(null)
+    const [loading, setLoading] = useState(true)
+
+
+
     const getMovie = async (url) => {
         const res = await fetch(url)
         const data = await res.json()
-        setMovie(data)
+        setMovie(data) 
+        setLoading(false)
     }
 
     const formatCurrency = (number) => {
         return number.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
+            style: "currency",
+            currency: "USD",
         });
-      };
-    
+    };
+
     useEffect(() => {
         const movieUrl = `${moviesURL}${id}?${apiKey}`
-        getMovie(movieUrl)
-        console.log(movieUrl)
+        getMovie(movieUrl)  
     }, [])
 
     return (
 
         <C.Container >
+            {loading && <Loader />}
             {movie && (
                 <>
                     <C.DivInform>
                         <C.Image src={imagesURL + movie.poster_path} alt={movie.title} />
                         <C.H1>{movie.original_title}</C.H1>
-                        <C.Info><C.Star />{movie.vote_average}</C.Info>
+                        <C.ParagraphStar><C.Star />{movie.vote_average}</C.ParagraphStar>
                         <C.Info>{movie.tagline}</C.Info>
                     </C.DivInform>
 

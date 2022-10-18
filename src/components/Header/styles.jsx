@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 
+
 export const Container = styled.header`
 display: flex;
 justify-content: space-between;
 padding: 2rem 8rem;
 background-color: #000;
+position: relative;
 
 
 @media(max-width: 800px) {
@@ -24,3 +26,4 @@ a{
     color: white;
 }
 `
+

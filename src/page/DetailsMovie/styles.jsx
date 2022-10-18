@@ -19,11 +19,22 @@ height: 100%;
 `
 export const H1 = styled.h1`
 color: white;
+text-align: center;
+margin-top: 10px;
 `
 export const Star = styled(AiFillStar)`
 color: white;
 `
 
+export const ParagraphStar = styled.p`
+color: white;
+font-weight: white;
+display: flex;
+align-items: center;
+font-size: 20px;
+margin: 20px auto;
+
+`
 export const DivContent = styled.div`
 width: 400px;
 margin: 0 auto;
@@ -39,6 +50,7 @@ color: white;
 font-weight: white;
 display: flex;
 align-items: center;
+font-size: 20px;
 
 `
 export const Value = styled.p`

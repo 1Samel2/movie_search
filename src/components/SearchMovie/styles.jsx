@@ -1,8 +1,7 @@
 import styled from 'styled-components'
+import { BsSearch } from 'react-icons/bs'
 
-import {BsSearch} from 'react-icons/bs'
-
-export const Container = styled.form`
+export const DivSearch = styled.form`
 background-color: #1b1b1c;
 padding: 10px;
 border-radius: 8px;
