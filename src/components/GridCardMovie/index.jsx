@@ -1,43 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom"
 import { FaStar } from "react-icons/fa";
 import * as C from './styles'
 
-const moviesURL = import.meta.env.VITE_API
-const apiKey = import.meta.env.VITE_API_KEY
 const imagesURL = import.meta.env.VITE_IMG;
 
-const GridCardMovie = () => {
-
-  const [topMovies, setTopMovies] = useState([])
-  const getTopRatedMovies = async (url) => {
-    const res = await fetch(url)
-    const data = await res.json()
-    setTopMovies(data.results)
-  }
-
-  useEffect(() => {
-    const topRateUrl = `${moviesURL}top_rated?${apiKey}`
-    getTopRatedMovies(topRateUrl)
-
-  }, [])
+const GridCardMovie = ({ movie, showLink = true }) => {
 
   return (
-    <section>
-      <C.Title>Lista de filmes:</C.Title>
-      <C.ContainerCard>     
-        {topMovies.length > 0 && topMovies.map((movie) =>
-          <C.ContainerContent key={movie.id}>
-            <C.ImgMovie src={imagesURL + movie.poster_path} alt={movie.title} />
-            <C.TitleCard>{movie.title}</C.TitleCard>
-            <C.Star>
-              <FaStar /> {movie.vote_average}
-            </C.Star>
-            <Link to={`/movie/${movie.id}`}>Detalhes</Link>
-          </C.ContainerContent>
-        )}
+      <C.ContainerCard>
+
+        <C.ContainerContent>
+          <C.ImgMovie src={imagesURL + movie.poster_path} alt={movie.title} />
+          <C.TitleCard>{movie.title}</C.TitleCard>
+          <C.Star>
+            <FaStar /> {movie.vote_average}
+          </C.Star>
+          {showLink && <Link to={`/movie/${movie.id}`}>Detalhes</Link>}
+        </C.ContainerContent>
+        
       </C.ContainerCard>
-    </section>
   )
 }
 

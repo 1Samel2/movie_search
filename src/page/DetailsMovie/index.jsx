@@ -26,10 +26,9 @@ const DetailsMovie = () => {
     const getMovie = async (url) => {
         const res = await fetch(url)
         const data = await res.json()
-        setMovie(data) 
+        setMovie(data)
         setLoading(false)
     }
-
     const formatCurrency = (number) => {
         return number.toLocaleString("en-US", {
             style: "currency",
@@ -39,7 +38,7 @@ const DetailsMovie = () => {
 
     useEffect(() => {
         const movieUrl = `${moviesURL}${id}?${apiKey}`
-        getMovie(movieUrl)  
+        getMovie(movieUrl)
     }, [])
 
     return (

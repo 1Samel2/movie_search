@@ -3,14 +3,10 @@ import { BsSearch } from 'react-icons/bs'
 
 export const DivSearch = styled.form`
 background-color: #1b1b1c;
-padding: 10px;
+padding: 10px; 
 border-radius: 8px;
-align-items: center;
 
-@media(max-width: 800px) {
-   
-    
-}
+display: flex;
 `
 
 export const SearchImg = styled(BsSearch)`
@@ -36,7 +32,4 @@ export const Button = styled.button`
 border: none;
 background: none;
 cursor: pointer;
-padding-left: 10px;
-height: 0;
-
 `
