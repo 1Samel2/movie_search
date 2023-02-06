@@ -7,15 +7,13 @@ const moviesURL = import.meta.env.VITE_API
 const apiKey = import.meta.env.VITE_API_KEY
 
 const Home = () => {
-
-  const [loading, setLoading] = useState(true)
   const [topMovies, setTopMovies] = useState([])
 
   const getTopRatedMovies = async (url) => {
     const res = await fetch(url)
     const data = await res.json()
     setTopMovies(data.results)
-    setLoading(false)
+
   }
 
   useEffect(() => {
@@ -27,7 +25,7 @@ const Home = () => {
   return (
     <C.Container>
       <C.Title>Melhores filmes</C.Title>
-      {loading && <Loader />}
+      
       {topMovies.length > 0 &&
         topMovies.map((movie) =>
           <GridCardMovie key={movie.id} movie={movie} />
